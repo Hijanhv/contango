@@ -1,0 +1,39 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contango logomark">
+  <defs>
+    <linearGradient id="cg" x1="52" y1="182" x2="204" y2="76" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14E0B4"/>
+      <stop offset="0.5" stop-color="#28C4F0"/>
+      <stop offset="1" stop-color="#7C5CFC"/>
+    </linearGradient>
+    <linearGradient id="cgfill" x1="52" y1="76" x2="204" y2="182" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#28C4F0"/>
+      <stop offset="1" stop-color="#14E0B4"/>
+    </linearGradient>
+    <filter id="cglow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- contango gap: shaded area between spot baseline and forward curve -->
+  <path d="M52 182 C104 108 150 84 204 76 L204 182 Z" fill="url(#cgfill)" opacity="0.10"/>
+
+  <!-- spot baseline (flat, muted) -->
+  <path d="M52 182 L196 182" stroke="#4A5570" stroke-width="9" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- forward curve (the hero): rises steeply, flattens into contango -->
+  <g filter="url(#cglow)">
+    <path d="M52 182 C104 108 150 84 204 76" stroke="url(#cg)" stroke-width="16" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- maturity nodes along the curve (term structure) -->
+  <circle cx="105" cy="121" r="6" fill="#0A0E17" stroke="url(#cg)" stroke-width="4.5"/>
+  <circle cx="145" cy="94" r="6" fill="#0A0E17" stroke="url(#cg)" stroke-width="4.5"/>
+
+  <!-- spot origin node -->
+  <circle cx="52" cy="182" r="8" fill="url(#cg)"/>
+
+  <!-- settlement / far-tenor ring node -->
+  <circle cx="204" cy="76" r="12" fill="none" stroke="url(#cg)" stroke-width="7"/>
+  <circle cx="204" cy="76" r="3.2" fill="url(#cg)"/>
+</svg>
